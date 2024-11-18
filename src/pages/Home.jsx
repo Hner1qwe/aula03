@@ -15,12 +15,22 @@ export default function App() {
 
         receberListaProdutos();
     }, []);
+    const orderaz = () => {
+        const listaaux = [...lista].sort((a,b)=> a.title.localeCompare(b.title));
+        setLista(listaaux)
+    }
+    const orderza = () => {
+        const listaaux0 = [...lista].sort((a,b)=> b.title.localeCompare(a.title));
+        setLista(listaaux0)
+    }
 
     return (
         <>
         <header className={styles.header}>
             <h1 className={styles.logo}>Espelunca</h1>
             </header>
+            <button onClick={() => orderaz()}></button>
+            <button onClick={() => orderza()}></button>
             <div className={styles.container}>
                 {lista.map(produto => (
                     <div className={styles.cardscontainer}>
