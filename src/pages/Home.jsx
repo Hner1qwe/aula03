@@ -23,14 +23,24 @@ export default function App() {
         const listaaux0 = [...lista].sort((a,b)=> b.title.localeCompare(a.title));
         setLista(listaaux0)
     }
+    const pricemenor = () =>{
+        const listaaux1 =[...lista].sort((a,b) => a.price - b.price)
+        setLista(listaaux1)
+    }
+    const pricemaior = () =>{
+        const listaaux2 =[...lista].sort((a,b) => b.price - a.price)
+        setLista(listaaux2)
+    }
 
     return (
         <>
         <header className={styles.header}>
             <h1 className={styles.logo}>Espelunca</h1>
             </header>
-            <button onClick={() => orderaz()}></button>
-            <button onClick={() => orderza()}></button>
+            <button onClick={() => orderaz()}>AZ</button>
+            <button onClick={() => orderza()}>ZA</button>
+            <button onClick={() => pricemenor()}>menor</button>
+            <button onClick={() => pricemaior()}>maior</button>
             <div className={styles.container}>
                 {lista.map(produto => (
                     <div className={styles.cardscontainer}>
